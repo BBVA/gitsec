@@ -34,7 +34,7 @@ lowercase, replacing space and underscores with hyphens.
    you can extend it using the FROM construct.
 
 #. If your tool has not a docker image distribution you can create your own
-   from your favourite distribution. After that, install all the tools
+   from your favorite distribution. After that, install all the tools
    dependencies and the tool itself.
 
 #. Add your adapter to the image. See below.
