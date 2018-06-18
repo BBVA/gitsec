@@ -1,0 +1,6 @@
+buildbot
+buildbot-washer
+buildbot-www
+environconfig
+pyyaml
+docker
