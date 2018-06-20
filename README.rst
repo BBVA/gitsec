@@ -14,6 +14,11 @@ Architecture
 gitsec is build upon *buildbot* and *buildbot-washer* therefore inheriting
 their architecture.
 
+
+Workflow
+--------
+
+
 The **master** runs on a *docker* container and spawns **workers** in new
 containers as needed.
 
@@ -53,10 +58,10 @@ Server is configured with environment variables only. This is a list of
 variables you can customize to fit your needs.
 
 
-========                  =======                       ===========
+========                  =======                       =====================================
 Variable                  Default                       Description
-========                  =======                       ===========
-DOCKER_HOST               "unix://var/run/docker.sock"
+========                  =======                       =====================================
+DOCKER_HOST               "unix://var/run/docker.sock"  URI of the docker daemon gitsec will use to spawn new workers.
 WORKER_IMAGE_AUTOPULL     True
 WORKER_INSTANCES          16
 WORKER_IMAGE_WHITELIST    "*"
