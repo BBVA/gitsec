@@ -43,12 +43,13 @@ trufflehog      bbvalabsci/gitsec-trufflehog
 Usage
 -----
 
+
 Server Deployment
 ~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
-   docker run -ti -v/var/run/docker.sock:/var/run/docker.sock  -p8010:8010 -p9989:9989 gitsec
+   docker run -ti -v/var/run/docker.sock:/var/run/docker.sock  -p8010:8010 -p9989:9989 bbvalabsci/gitsec
 
 
 Server Configuration
@@ -56,7 +57,6 @@ Server Configuration
 
 Server is configured with environment variables only. This is a list of
 variables you can customize to fit your needs.
-
 
 ========================= ============================= =====================================
 Variable                  Default                       Description
