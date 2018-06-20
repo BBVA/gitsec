@@ -29,15 +29,15 @@ in the section below.
 Plugins
 -------
 
-=============== =================================
-Project         Image
-=============== =================================
+=============== ================================= ================
+Project         Image                             Summary
+=============== ================================= ================
 api-key-detect  bbvalabsci/gitsec-api-key-detect
 git-hound       bbvalabsci/gitsec-git-hound
 git-secrets     bbvalabsci/gitsec-git-secrets
 gittyleaks      bbvalabsci/gitsec-gittyleaks
 trufflehog      bbvalabsci/gitsec-trufflehog
-=============== =================================
+=============== ================================= ================
 
 
 Usage
@@ -61,22 +61,29 @@ variables you can customize to fit your needs.
 ========================= ============================= =====================================
 Variable                  Default                       Description
 ========================= ============================= =====================================
-DOCKER_HOST               "unix://var/run/docker.sock"  URI of the docker daemon gitsec will use to spawn new workers.
-WORKER_IMAGE_AUTOPULL     True
-WORKER_INSTANCES          16
-WORKER_IMAGE_WHITELIST    "*"
-BUILDBOT_MQ_URL           None
-BUILDBOT_MQ_REALM         "buildbot"
-BUILDBOT_MQ_DEBUG         False
-BUILDBOT_WORKER_PORT      9989
-BUILDBOT_WEB_URL          "http://localhost:8010/"
-BUILDBOT_WEB_PORT         8010
-BUILDBOT_WEB_HOST         "localhost"
-BUILDBOT_DB_URL           "sqlite://"
-ENABLE_GITHUB_HOOK        True
-GITHUB_HOOK_SECRET        None
-ENABLE_BITBUCKET_HOOK     True
-GITSEC_SERVER_CONFIG      None
+DOCKER_HOST               "unix://var/run/docker.sock"  URI of the docker
+                                                        daemon gitsec will use to spawn new
+                                                        workers.
+WORKER_IMAGE_AUTOPULL     True                          Pull the docker images
+                                                        of needed plugins at runtime when
+                                                        the are needed.
+WORKER_INSTANCES          16                            Maximum number of parallel tasks.
+WORKER_IMAGE_WHITELIST    "*"                           Comma separated list of shell-like
+                                                        expressions defining the allowed
+                                                        docker images.
+BUILDBOT_WORKER_PORT      9989                          Port used for master<->worker
+                                                        communication.
+BUILDBOT_WEB_URL          "http://localhost:8010/"      Web UI absolute URL.
+BUILDBOT_WEB_PORT         8010                          Port the webserver to bind to.
+BUILDBOT_WEB_HOST         "localhost"                   Address the webserver to bind to.
+BUILDBOT_DB_URL           "sqlite://"                   Database URI in SQLAlchemy format.
+ENABLE_GITHUB_HOOK        "on"                          Enable Github webhook integration.
+GITHUB_HOOK_SECRET        -                             Github webhook secret token.
+ENABLE_BITBUCKET_HOOK     "on"                          Enable Bitbucket webhook integration.
+GITSEC_SERVER_CONFIG      None                          When this file is
+                                                        provided the server will run the set
+                                                        of defined plugins independently of the 
+                                                        user config.
 ========================= ============================= =====================================
 
 
