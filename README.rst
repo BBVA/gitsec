@@ -58,9 +58,9 @@ Server is configured with environment variables only. This is a list of
 variables you can customize to fit your needs.
 
 
-========                  =======                       =====================================
+========================= ============================= =====================================
 Variable                  Default                       Description
-========                  =======                       =====================================
+========================= ============================= =====================================
 DOCKER_HOST               "unix://var/run/docker.sock"  URI of the docker daemon gitsec will use to spawn new workers.
 WORKER_IMAGE_AUTOPULL     True
 WORKER_INSTANCES          16
@@ -77,7 +77,7 @@ ENABLE_GITHUB_HOOK        True
 GITHUB_HOOK_SECRET        None
 ENABLE_BITBUCKET_HOOK     True
 GITSEC_SERVER_CONFIG      None
-========                  =======                       ===========
+========================= ============================= =====================================
 
 
 I've just committed a secret! How I fix it??
