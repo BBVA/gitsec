@@ -1,5 +1,5 @@
 buildbot
-buildbot-washer
+buildbot-washer==0.0.6
 buildbot-www
 environconfig
 pyyaml
