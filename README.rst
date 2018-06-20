@@ -1,7 +1,8 @@
 gitsec
 ======
 
-gitsec is an *automated secret discovery service* for **git** that helps you detect sensitive data leaks.
+gitsec is an *automated secret discovery service* for **git** that helps you
+detect sensitive data leaks.
 
 .. image:: https://raw.githubusercontent.com/BBVA/gitsec/develop/docs/_static/logo-small.png
     :target: http://gitsec.readthedocs.org/
@@ -10,9 +11,11 @@ gitsec is an *automated secret discovery service* for **git** that helps you det
 Architecture
 ------------
 
-gitsec is build upon *buildbot* and *buildbot-washer* therefore inheriting their architecture.
+gitsec is build upon *buildbot* and *buildbot-washer* therefore inheriting
+their architecture.
 
-The **master** runs on a *docker* container and spawns **workers** in new containers as needed.
+The **master** runs on a *docker* container and spawns **workers** in new
+containers as needed.
 
 **Workers** are *buildbot-washer* tasks. You can check the ready-to-use plugins
 in the section below.
@@ -46,7 +49,7 @@ Server Deployment
 Server Configuration
 ~~~~~~~~~~~~~~~~~~~~
 
-Server is configure with environment variables only. This is a list of
+Server is configured with environment variables only. This is a list of
 variables you can customize to fit your needs.
 
 
@@ -72,7 +75,7 @@ GITSEC_SERVER_CONFIG      None
 ========                  =======                       ===========
 
 
-I commited a secret! How I fix it??
------------------------------------
+I've just committed a secret! How I fix it??
+--------------------------------------------
 
 https://help.github.com/articles/removing-sensitive-data-from-a-repository/
