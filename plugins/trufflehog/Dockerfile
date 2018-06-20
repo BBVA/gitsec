@@ -1,4 +1,6 @@
 FROM andmyhacks/trufflehog
 
 COPY --from=bbvalabsci/buildbot-washer-worker:latest /washer /washer
-CMD ["/washer/entrypoint.sh"]
+COPY tasks.py /washer/
+ENTRYPOINT ["/washer/entrypoint.sh"]
+CMD ["/washer/tasks.py"]

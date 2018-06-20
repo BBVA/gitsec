@@ -8,19 +8,15 @@ def main(repopath, **kwargs):
     import invoke
     c = invoke.Context()
 
-    res = c.run("python /api-key-detect/api_key_detect.py %r" % repopath,
-                warn=True)
+    res = c.run("trufflehog --json %r" % repopath, warn=True)
 
     yield AppendStdout(res.stdout)
     yield AppendStderr(res.stderr)
 
-    found = "Line" in res.stdout and "Entropy" in res.stdout
-    if found:
+    if res.stdout:
         # We found something
         yield CreateNamedLog("secrets")
-        yield AppendToLog(
-            "secrets",
-            "\n".join(res.stdout.splitlines()[3:]))
+        yield AppendToLog("secrets", res.stdout)
         # Repo has suspicious data FAILURE!
         return False
     else:
