@@ -18,7 +18,6 @@ their architecture.
 Workflow
 --------
 
-
 The **master** runs on a *docker* container and spawns **workers** in new
 containers as needed.
 
@@ -29,15 +28,19 @@ in the section below.
 Plugins
 -------
 
-=============== ================================= ================
+=============== ================================= ===========================================
 Project         Image                             Summary
-=============== ================================= ================
-api-key-detect  bbvalabsci/gitsec-api-key-detect
-git-hound       bbvalabsci/gitsec-git-hound
-git-secrets     bbvalabsci/gitsec-git-secrets
-gittyleaks      bbvalabsci/gitsec-gittyleaks
-trufflehog      bbvalabsci/gitsec-trufflehog
-=============== ================================= ================
+=============== ================================= ===========================================
+api-key-detect_ bbvalabsci/gitsec-api-key-detect  Scan a codebase for API keys and passwords
+git-hound_      bbvalabsci/gitsec-git-hound       Git plugin that prevents sensitive data
+                                                  from being committed
+git-secrets_    bbvalabsci/gitsec-git-secrets     Prevents you from committing secrets and
+                                                  credentials into git repositories
+gittyleaks_     bbvalabsci/gitsec-gittyleaks      Find sensitive information for a git repo
+trufflehog_     bbvalabsci/gitsec-trufflehog      Searches through git repositories for
+                                                  high entropy strings and secrets, digging
+                                                  deep into commit history
+=============== ================================= ===========================================
 
 
 Usage
@@ -84,6 +87,7 @@ GITSEC_SERVER_CONFIG      None                          When this file is
                                                         provided the server will run the set
                                                         of defined plugins independently of the 
                                                         user config.
+GITSEC_WORKER_IMAGE       bbvalabsci/gitsec-worker      Worker image used to basic bootstrapping.
 ========================= ============================= =====================================
 
 
@@ -91,3 +95,10 @@ I've just committed a secret! How I fix it??
 --------------------------------------------
 
 https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+
+
+.. _api-key-detect: https://github.com/daylen/api-key-detect
+.. _git-hound: https://github.com/ezekg/git-hound
+.. _git-secrets: https://github.com/awslabs/git-secrets
+.. _gittyleaks: https://hub.docker.com/r/bbvalabsci/gitsec-gittyleaks/
+.. _trufflehog: https://github.com/dxa4481/truffleHog
