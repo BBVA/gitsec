@@ -223,7 +223,7 @@ At this point your plugin is ready to be build:
    docker build . -t myawesomeplugin
 
 
-You can publish the image in whatever docker registry you prefer.
+You can publish the image in your docker registry of preference.
 
 After the plugin is published you can include it in the configuration file as
 any other plugin.
