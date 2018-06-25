@@ -4,6 +4,10 @@ gitsec
 gitsec is an *automated secret discovery service* for **git** that helps you
 detect sensitive data leaks.
 
+gitsec doesn't directly detect sensitive data but uses already available open
+source tools with this pourpose and provides a unified framework to run them
+easily.
+
 .. image:: https://raw.githubusercontent.com/BBVA/gitsec/develop/docs/_static/logo-small.png
     :target: http://gitsec.readthedocs.org/
 
@@ -147,11 +151,80 @@ GitHub Integration
 XXX
 
 
-Create New Plugins
-------------------
+Create a New Plugin
+-------------------
 
-XXX
+A plugin is a *docker image* containing three things:
 
+#. The buildbot worker.
+
+#. The tool to run for detecting secrets.
+
+#. The washer task. A python function to be executed by the worker in order to
+   run the tool and translate the results.
+
+The typical procedure to create a new plugin is the following.
+
+#. Create a docker container with the tool installed. Maybe the tool creator
+   already provides one, if this is the case we only need to start from it.
+
+   .. code-block:: docker
+
+      FROM myawesometool
+
+#. Copy the buildbot-washer worker.
+
+   .. code-block:: docker
+
+      FROM myawesometool
+      COPY --from=bbvalabsci/buildbot-washer-worker:latest /washer /washer
+      ENTRYPOINT ["/washer/entrypoint.sh"]
+
+#. Create the tasks.py file and add it to the *docker image*.
+
+   .. code-block:: python
+      :name: tasks.py
+
+      from washer.worker.actions import CreateNamedLog, AppendToLog
+      from washer.worker.commands import washertask
+      
+
+      @washertask
+      def main(repopath, **kwargs):
+          import invoke
+          c = invoke.Context()
+      
+          with c.cd(repopath):
+              res = c.run("myawesometool .", warn=True)
+      
+          lines = res.stdout.splitlines()
+          if lines:
+              yield CreateNamedLog("secrets")
+              yield AppendToLog("secrets", res.stdout)
+              return False
+      
+          return True
+
+
+    .. code-block:: docker
+
+      FROM myawesometool
+      COPY --from=bbvalabsci/buildbot-washer-worker:latest /washer /washer
+      COPY tasks.py /washer/
+      ENTRYPOINT ["/washer/entrypoint.sh"]
+      CMD ["/washer/tasks.py"]
+
+
+At this point your plugin is ready to be build:
+
+  .. code-block:: bash
+
+     docker build . -t myawesomeplugin
+
+You can publish the image in whatever docker registry you prefer.
+
+After the plugin is published you can include it in the configuration file as
+any other plugin.
 
 
 I've just committed a secret! How I fix it??
