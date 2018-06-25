@@ -4,3 +4,4 @@ buildbot-www
 environconfig
 pyyaml
 docker
+pyjade
