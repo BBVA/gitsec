@@ -5,8 +5,7 @@ gitsec is an *automated secret discovery service* for **git** that helps you
 detect sensitive data leaks.
 
 gitsec doesn't directly detect sensitive data but uses already available open
-source tools with this purpose and provides a unified framework to run them
-easily.
+source tools with this purpose and provides a framework to run them as one.
 
 .. image:: https://raw.githubusercontent.com/BBVA/gitsec/develop/docs/_static/logo-small.png
     :target: http://gitsec.readthedocs.org/
