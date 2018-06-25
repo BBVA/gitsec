@@ -187,7 +187,6 @@ The typical procedure to create a new plugin is the following.
       from washer.worker.actions import CreateNamedLog, AppendToLog
       from washer.worker.commands import washertask
       
-
       @washertask
       def main(repopath, **kwargs):
           import invoke
@@ -205,7 +204,10 @@ The typical procedure to create a new plugin is the following.
           return True
 
 
-    .. code-block:: docker
+    Finally add the tasks file to the *Dockerfile* and set it as the
+    default command.
+
+   .. code-block:: docker
 
       FROM myawesometool
       COPY --from=bbvalabsci/buildbot-washer-worker:latest /washer /washer
@@ -219,6 +221,7 @@ At this point your plugin is ready to be build:
 .. code-block:: bash
 
    docker build . -t myawesomeplugin
+
 
 You can publish the image in whatever docker registry you prefer.
 
