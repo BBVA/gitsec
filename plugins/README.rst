@@ -1,62 +1,78 @@
-.. warning::
+Create a New Plugin
+===================
 
-   Work In Progress
+A plugin is a *docker image* containing three things:
 
+#. The buildbot worker.
 
-gitsec plugins
-==============
+#. The tool to run for detecting secrets.
 
-gitsec plugins are Docker containers providing three things:
+#. The washer task. A python function to be executed by the worker in order to
+   run the tool and translate the results.
 
+The typical procedure to create a new plugin is the following.
 
-#. The tool to be integrated with gitsec.
+#. Create a **Dockerfile** to build an image with the tool installed. Maybe the
+   tool creator already provides one, if this is the case we only need to start
+   from it.
 
-#. An adapter capable of configuring (if necessary) and launch the tool.
+   .. code-block:: dockerfile
 
-#. The buildbot-washer worker.
+      FROM myawesometool
 
+#. Copy the buildbot-washer worker.
 
-How to contribute
------------------
+   .. code-block:: dockerfile
 
-If you've found a cool tool that you want be integrated with gitsec follow the
-next instructions.
+      FROM myawesometool
+      COPY --from=bbvalabsci/buildbot-washer-worker:latest /washer /washer
+      ENTRYPOINT ["/washer/entrypoint.sh"]
 
+#. Create the tasks.py file and add it to the *docker image*.
 
-#. Make a fork of this repository.
+   .. code-block:: python
 
-#. Create a new subdirectory in this directory with the name of the tool in
-lowercase, replacing space and underscores with hyphens.
-
-#. Create a Dockerfile inside the new directory.
-
-#. If the tool you want to integrate already has a docker image distribution
-   you can extend it using the FROM construct.
-
-#. If your tool has not a docker image distribution you can create your own
-   from your favorite distribution. After that, install all the tools
-   dependencies and the tool itself.
-
-#. Add your adapter to the image. See below.
-
-#. Copy the buildbot-washer worker. See below.
-
-
-Adding your adapter
-~~~~~~~~~~~~~~~~~~~
-
-XXX
-
-Add the environment variable WASHER_ENTRYPOINT pointing to the full path of
-your adapter.
+      from subprocess import check_output
+      from washer.worker.actions import CreateNamedLog, AppendToLog
+      from washer.worker.commands import washertask
+      
+      @washertask
+      def main(repopath, **kwargs):
+          output = check_output(f"myawesometool {repopath}")
+          if output:
+              # Something found!
+              yield CreateNamedLog("secrets")
+              yield AppendToLog("secrets", output)
+              return False  # Make the build FAIL
+          else:
+              # Nothing found, return SUCCESS
+              return True
 
 
-Coping the `buildbot-washer` worker
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Finally add the tasks file to the *Dockerfile* and set it as the
+   default command.
 
-Add these two lines at the end of your Dockerfile and you are ready to go!
+   .. code-block:: dockerfile
 
-.. code-block:: docker
+      FROM myawesometool
+      COPY --from=bbvalabsci/buildbot-washer-worker:latest /washer /washer
+      COPY tasks.py /washer/
+      ENTRYPOINT ["/washer/entrypoint.sh"]
+      CMD ["/washer/tasks.py"]
 
-   COPY --from=bbvalabsci/buildbot-washer-worker:latest /washer /washer
-   CMD ["/washer/entrypoint.sh"]
+
+At this point your plugin is ready to be build:
+
+.. code-block:: bash
+
+   docker build . -t myawesomeplugin
+
+
+You can publish the image in your docker registry of preference.
+
+After the plugin is published you can include it in the configuration file as
+any other plugin.
+
+You can check some examples in this directory.
+
+If you build a plugin for a public tool don't hesitate to send a **pull request**.
