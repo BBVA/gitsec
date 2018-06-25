@@ -184,24 +184,21 @@ The typical procedure to create a new plugin is the following.
 
    .. code-block:: python
 
+      from subprocess import check_output
       from washer.worker.actions import CreateNamedLog, AppendToLog
       from washer.worker.commands import washertask
       
       @washertask
       def main(repopath, **kwargs):
-          import invoke
-          c = invoke.Context()
-      
-          with c.cd(repopath):
-              res = c.run("myawesometool .", warn=True)
-      
-          lines = res.stdout.splitlines()
-          if lines:
+          output = check_output(f"myawesometool {repopath}")
+          if output:
+              # Something found!
               yield CreateNamedLog("secrets")
-              yield AppendToLog("secrets", res.stdout)
-              return False
-      
-          return True
+              yield AppendToLog("secrets", output)
+              return False  # Make the build fail
+          else:
+              # Nothing found, return SUCCESS.
+              return True
 
 
    Finally add the tasks file to the *Dockerfile* and set it as the
