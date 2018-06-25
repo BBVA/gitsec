@@ -65,10 +65,6 @@ You can run the gitsec master process with docker this way:
 
    docker run -ti -v/var/run/docker.sock:/var/run/docker.sock -p8010:8010 -p9989:9989 bbvalabsci/gitsec
 
-
-Master Configuration
-~~~~~~~~~~~~~~~~~~~~
-
 Master configuration documentation `is available here`_.
 
 
