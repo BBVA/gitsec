@@ -86,8 +86,8 @@ The endpoint to point to shall be "http://YOUR-HOST-AND-POR-HERE/change_hook/git
 Configuration File Format
 -------------------------
 
-gitsec configuration file define the list of plugins to run for each source
-code change.
+gitsec configuration is at least one YAML file defining the list of plugins to
+run for each source code change.
 
 Two configuration files may be defined: one in the server, another in the users
 repository. The former, if present, is managed by the owner of the gitsec
