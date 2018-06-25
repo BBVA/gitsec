@@ -31,19 +31,19 @@ processes with an specific *buildbot-washer* task registered.
 Plugins
 -------
 
-=============== ================================= ===========================================
-Project         Image                             Summary
-=============== ================================= ===========================================
-api-key-detect_ bbvalabsci/gitsec-api-key-detect_ Scan a codebase for API keys and passwords
-git-hound_      bbvalabsci/gitsec-git-hound_      Git plugin that prevents sensitive data
-                                                  from being committed
-git-secrets_    bbvalabsci/gitsec-git-secrets_    Prevents you from committing secrets and
-                                                  credentials into git repositories
-gittyleaks_     bbvalabsci/gitsec-gittyleaks_     Find sensitive information for a git repo
-trufflehog_     bbvalabsci/gitsec-trufflehog_     Searches through git repositories for
-                                                  high entropy strings and secrets, digging
-                                                  deep into commit history
-=============== ================================= ===========================================
+=============== =================================== ===========================================
+Project         Image                               Summary
+=============== =================================== ===========================================
+api-key-detect_ `bbvalabsci/gitsec-api-key-detect`_ Scan a codebase for API keys and passwords
+git-hound_      `bbvalabsci/gitsec-git-hound`_      Git plugin that prevents sensitive data
+                                                    from being committed
+git-secrets_    `bbvalabsci/gitsec-git-secrets`_    Prevents you from committing secrets and
+                                                    credentials into git repositories
+gittyleaks_     `bbvalabsci/gitsec-gittyleaks`_     Find sensitive information for a git repo
+trufflehog_     `bbvalabsci/gitsec-trufflehog`_     Searches through git repositories for
+                                                    high entropy strings and secrets, digging
+                                                    deep into commit history
+=============== =================================== ===========================================
 
 
 Configuration File Format
@@ -237,8 +237,8 @@ https://help.github.com/articles/removing-sensitive-data-from-a-repository/
 .. _trufflehog: https://github.com/dxa4481/truffleHog
 .. _buildbot: https://buildbot.net
 .. _buildbot-washer: https://github.com/BBVA/buildbot-washer/
-.. _bbvalabsci/gitsec-api-key-detect: https://hub.docker.com/r/bbvalabsci/bbvalabsci/gitsec-api-key-detect
-.. _bbvalabsci/gitsec-git-hound: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-git-hound
-.. _bbvalabsci/gitsec-git-secrets: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-git-secrets
-.. _bbvalabsci/gitsec-gittyleaks: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-gittyleaks
-.. _bbvalabsci/gitsec-trufflehog: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-trufflehog
+.. _`bbvalabsci/gitsec-api-key-detect`: https://hub.docker.com/r/bbvalabsci/bbvalabsci/gitsec-api-key-detect
+.. _`bbvalabsci/gitsec-git-hound`: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-git-hound
+.. _`bbvalabsci/gitsec-git-secrets`: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-git-secrets
+.. _`bbvalabsci/gitsec-gittyleaks`: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-gittyleaks
+.. _`bbvalabsci/gitsec-trufflehog`: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-trufflehog
