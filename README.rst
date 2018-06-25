@@ -168,13 +168,13 @@ The typical procedure to create a new plugin is the following.
 #. Create a docker container with the tool installed. Maybe the tool creator
    already provides one, if this is the case we only need to start from it.
 
-   .. code-block:: docker
+   .. code-block:: dockerfile
 
       FROM myawesometool
 
 #. Copy the buildbot-washer worker.
 
-   .. code-block:: docker
+   .. code-block:: dockerfile
 
       FROM myawesometool
       COPY --from=bbvalabsci/buildbot-washer-worker:latest /washer /washer
@@ -207,7 +207,7 @@ The typical procedure to create a new plugin is the following.
    Finally add the tasks file to the *Dockerfile* and set it as the
    default command.
 
-   .. code-block:: docker
+   .. code-block:: dockerfile
 
       FROM myawesometool
       COPY --from=bbvalabsci/buildbot-washer-worker:latest /washer /washer
