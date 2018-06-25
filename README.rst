@@ -93,7 +93,7 @@ Two configuration files may be defined: one in the server, another in the
 user's repository. The former, if present, is managed by the owner of the
 gitsec service and contains the list of plugins that must always run for a code
 change. The latter is managed by the source code repository owners and contains
-an extra list of plugins and configuration.
+an extra list of plugins and configuration for that specific repository.
 
 This way a list of plugins may be enforced by the gitsec service owner and, at
 the same time, maintains flexibility for the developers to add their own checks.
