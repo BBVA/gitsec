@@ -79,14 +79,17 @@ This is an example of configuration file:
         bbvalabsci/gitsec-gittyleaks:
 
 
-* The `plugins` key contains the list of plugins.
-    * Each plugin section is defined by the name of the **docker image to
-      run**.
-        * The plugin section may contain the following keys:
-          * `unimportant` (yes|no): If `yes` the failure of this plugin will
-            not make the whole check to fail.
-          * `options`: The parameter passed to the plugin. Depends on the
-            plugin.
+- The `plugins` key contains the list of plugins.
+
+  - Each plugin section is defined by the name of the **docker image to run**.
+
+    - The plugin section may contain the following keys:
+
+      - `unimportant` (yes|no): If `yes` the failure of this plugin will
+        not make the whole check to fail.
+
+      - `options`: The parameter passed to the plugin. Depends on the
+        plugin.
 
 
 Usage
