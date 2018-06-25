@@ -195,9 +195,9 @@ The typical procedure to create a new plugin is the following.
               # Something found!
               yield CreateNamedLog("secrets")
               yield AppendToLog("secrets", output)
-              return False  # Make the build fail
+              return False  # Make the build FAIL
           else:
-              # Nothing found, return SUCCESS.
+              # Nothing found, return SUCCESS
               return True
 
 
