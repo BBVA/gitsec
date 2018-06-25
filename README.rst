@@ -237,8 +237,8 @@ https://help.github.com/articles/removing-sensitive-data-from-a-repository/
 .. _trufflehog: https://github.com/dxa4481/truffleHog
 .. _buildbot: https://buildbot.net
 .. _buildbot-washer: https://github.com/BBVA/buildbot-washer/
-.. _`bbvalabsci/gitsec-api-key-detect`: https://hub.docker.com/r/bbvalabsci/bbvalabsci/gitsec-api-key-detect
-.. _`bbvalabsci/gitsec-git-hound`: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-git-hound
-.. _`bbvalabsci/gitsec-git-secrets`: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-git-secrets
-.. _`bbvalabsci/gitsec-gittyleaks`: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-gittyleaks
-.. _`bbvalabsci/gitsec-trufflehog`: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-trufflehog
+.. _`bbvalabsci/gitsec-api-key-detect`: https://hub.docker.com/r/bbvalabsci/gitsec-api-key-detect/
+.. _`bbvalabsci/gitsec-git-hound`: https://hub.docker.com/r/bbvalabsci/gitsec-git-hound/
+.. _`bbvalabsci/gitsec-git-secrets`: https://hub.docker.com/r/bbvalabsci/gitsec-git-secrets/
+.. _`bbvalabsci/gitsec-gittyleaks`: https://hub.docker.com/r/bbvalabsci/gitsec-gittyleaks/
+.. _`bbvalabsci/gitsec-trufflehog`: https://hub.docker.com/r/bbvalabsci/gitsec-trufflehog/
