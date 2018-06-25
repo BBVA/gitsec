@@ -113,7 +113,7 @@ Follow `this guide`_ to add the webhook.
 You should set a strong *secret* to the webhook, remember to pass the secret to
 your master using the **GITHUB_HOOK_SECRET** variable.
 
-The endpoint to point to will be "http://YOUR-HOST-AND-POR-HERE/change_hook/github".
+The endpoint to point to shall be "http://YOUR-HOST-AND-POR-HERE/change_hook/github".
 
 
 
