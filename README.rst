@@ -240,6 +240,10 @@ You can publish the image in your docker registry of preference.
 After the plugin is published you can include it in the configuration file as
 any other plugin.
 
+You can check some examples in the `plugins`_ directory.
+
+If you build a plugin for a public tool don't hesitate to send a **pull request**.
+
 
 I've just committed a secret! How I fix it??
 --------------------------------------------
@@ -260,3 +264,4 @@ https://help.github.com/articles/removing-sensitive-data-from-a-repository/
 .. _`bbvalabsci/gitsec-gittyleaks`: https://hub.docker.com/r/bbvalabsci/gitsec-gittyleaks/
 .. _`bbvalabsci/gitsec-trufflehog`: https://hub.docker.com/r/bbvalabsci/gitsec-trufflehog/
 .. _`this guide`: https://developer.github.com/webhooks/creating/#setting-up-a-webhook
+.. _plugins: https://github.com/BBVA/gitsec/tree/develop/plugins
