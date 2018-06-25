@@ -24,10 +24,8 @@ the configuration file(s).
 
 The **master** process runs on a *docker* container and spawns **workers** in
 new containers as needed. The master process is a regular *buildbot* master
-with gitsec's specific configuration.
-
-**Worker** processes also runs in containers. Worker processes are *buildbot*
-worker processes with an specific *buildbot-washer* task registered.
+with gitsec's specific configuration. Worker processes are *buildbot* worker
+processes with an specific *buildbot-washer* task registered.
 
 
 Plugins
@@ -36,13 +34,13 @@ Plugins
 =============== ================================= ===========================================
 Project         Image                             Summary
 =============== ================================= ===========================================
-api-key-detect_ bbvalabsci/gitsec-api-key-detect  Scan a codebase for API keys and passwords
-git-hound_      bbvalabsci/gitsec-git-hound       Git plugin that prevents sensitive data
+api-key-detect_ bbvalabsci/gitsec-api-key-detect_ Scan a codebase for API keys and passwords
+git-hound_      bbvalabsci/gitsec-git-hound_      Git plugin that prevents sensitive data
                                                   from being committed
-git-secrets_    bbvalabsci/gitsec-git-secrets     Prevents you from committing secrets and
+git-secrets_    bbvalabsci/gitsec-git-secrets_    Prevents you from committing secrets and
                                                   credentials into git repositories
-gittyleaks_     bbvalabsci/gitsec-gittyleaks      Find sensitive information for a git repo
-trufflehog_     bbvalabsci/gitsec-trufflehog      Searches through git repositories for
+gittyleaks_     bbvalabsci/gitsec-gittyleaks_     Find sensitive information for a git repo
+trufflehog_     bbvalabsci/gitsec-trufflehog_     Searches through git repositories for
                                                   high entropy strings and secrets, digging
                                                   deep into commit history
 =============== ================================= ===========================================
@@ -239,3 +237,8 @@ https://help.github.com/articles/removing-sensitive-data-from-a-repository/
 .. _trufflehog: https://github.com/dxa4481/truffleHog
 .. _buildbot: https://buildbot.net
 .. _buildbot-washer: https://github.com/BBVA/buildbot-washer/
+.. _bbvalabsci/gitsec-api-key-detect: https://hub.docker.com/r/bbvalabsci/bbvalabsci/gitsec-api-key-detect
+.. _bbvalabsci/gitsec-git-hound: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-git-hound
+.. _bbvalabsci/gitsec-git-secrets: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-git-secrets
+.. _bbvalabsci/gitsec-gittyleaks: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-gittyleaks
+.. _bbvalabsci/gitsec-trufflehog: https://hub.docker.com/r/bbvalabsci/bbvalabsci/bbvalabsci/gitsec-trufflehog
