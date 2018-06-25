@@ -183,7 +183,6 @@ The typical procedure to create a new plugin is the following.
 #. Create the tasks.py file and add it to the *docker image*.
 
    .. code-block:: python
-      :name: tasks.py
 
       from washer.worker.actions import CreateNamedLog, AppendToLog
       from washer.worker.commands import washertask
@@ -217,9 +216,9 @@ The typical procedure to create a new plugin is the following.
 
 At this point your plugin is ready to be build:
 
-  .. code-block:: bash
+.. code-block:: bash
 
-     docker build . -t myawesomeplugin
+   docker build . -t myawesomeplugin
 
 You can publish the image in whatever docker registry you prefer.
 
