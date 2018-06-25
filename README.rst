@@ -204,8 +204,8 @@ The typical procedure to create a new plugin is the following.
           return True
 
 
-    Finally add the tasks file to the *Dockerfile* and set it as the
-    default command.
+   Finally add the tasks file to the *Dockerfile* and set it as the
+   default command.
 
    .. code-block:: docker
 
