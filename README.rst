@@ -52,7 +52,7 @@ Usage
 In order to use **gitsec** you must follow these steps:
 
 #. Configure and deploy a master.
-#. Configure your a GitHub's repository webhooks.
+#. Configure your a GitHub's repository or organization webhooks.
 #. Add a *.gitsec.yml* configuration file to your project.
 
 
@@ -102,12 +102,19 @@ GITSEC_WORKER_IMAGE       bbvalabsci/gitsec-worker      Worker image used to bas
 ========================= ============================= =====================================
 
 
-GitHub WebHook Integration
+Github Webhook Integration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add 
-Add 
-https://developer.github.com/webhooks/creating/#setting-up-a-webhook
+You can set a Github webhook to trigger a *gitsec* analysis for a particular
+repository or for all the repositories in an organization.
+
+Follow `this guide`_ to add the webhook.
+
+You should set a strong *secret* to the webhook, remember to pass the secret to
+your master using the **GITHUB_HOOK_SECRET** variable.
+
+The endpoint to point to will be "http://YOUR-HOST-AND-POR-HERE/change_hook/github".
+
 
 
 Configuration File Format
@@ -252,3 +259,4 @@ https://help.github.com/articles/removing-sensitive-data-from-a-repository/
 .. _`bbvalabsci/gitsec-git-secrets`: https://hub.docker.com/r/bbvalabsci/gitsec-git-secrets/
 .. _`bbvalabsci/gitsec-gittyleaks`: https://hub.docker.com/r/bbvalabsci/gitsec-gittyleaks/
 .. _`bbvalabsci/gitsec-trufflehog`: https://hub.docker.com/r/bbvalabsci/gitsec-trufflehog/
+.. _`this guide`: https://developer.github.com/webhooks/creating/#setting-up-a-webhook
