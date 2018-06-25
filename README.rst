@@ -81,7 +81,7 @@ This is an example of configuration file:
         bbvalabsci/gitsec-gittyleaks:
 
 
-- The *plugins* key contains the list of plugins.
+- The *plugins* key contains the list of plugins. In the example 4 plugins are defined.
 
   - Each plugin section is defined by the name of the **docker image to run**.
 
