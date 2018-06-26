@@ -51,8 +51,8 @@ Usage
 In order to use **gitsec** you must follow these steps:
 
 #. Configure and deploy a master.
-#. Configure your a GitHub's repository or organization webhooks.
-#. Add a *.gitsec.yml* configuration file to your project.
+#. Configure your GitHub repository or organization webhooks.
+#. (Optional) Add a *.gitsec.yml* configuration file to your project.
 
 
 Master Deployment
